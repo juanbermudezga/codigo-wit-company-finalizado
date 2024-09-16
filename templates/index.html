@@ -1,0 +1,33 @@
+{% extends "layout.html" %}
+
+{% block page_content %}
+<style>
+    body {
+        background-image: url("{{ url_for('static', filename='background.jpg') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+</style>
+
+<h1>Bienvenido al sistema de Facturación</h1>
+
+<!-- Aquí va el contenido específico de la página index -->
+<div class="container">
+    <div class="main-content">
+        <h2>Sobre Nosotros</h2>
+        <p>En nuestra pizzería, nos apasiona crear experiencias gastronómicas memorables para nuestros clientes. Con una larga tradición en la preparación de auténticas pizzas artesanales, cada bocado es una explosión de sabor que te transporta a las calles de Nápoles.
+
+            Nuestro menú ofrece una amplia variedad de pizzas, desde las clásicas Margarita y Pepperoni hasta nuestras creaciones especiales cargadas de ingredientes frescos y sabrosos. Cada pizza se elabora con masa fresca, salsa de tomate casera y los mejores quesos y acompañamientos, asegurando una calidad excepcional en cada pedazo.</p>
+        <h2>Nuestros Servicios</h2>
+        <ul>
+            <li>venta de pizzas</li>
+            <li>pizzas a domicilio</li>
+            
+        </ul>
+        <h2>Horario de Atención</h2>
+        <p>Estamos abiertos de lunes a viernes de 3:00 pm a 10:00 PM, y los sábados de 3:00 pM a 11:00 PM.</p>
+    </div>
+</div>
+{% endblock %}

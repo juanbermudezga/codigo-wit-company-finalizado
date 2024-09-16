@@ -1,0 +1,89 @@
+{% extends "layout.html" %}
+
+{% block page_content %}
+<style>
+    body {
+        background-image: url("{{ url_for('static', filename='background3.jpg') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        color: #0e0d0d; /* Color del texto para que sea visible sobre el fondo */
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; /* Cambia la fuente si es necesario */
+    }
+    .container {
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para el contenido */
+        border-radius: 8px;
+        margin: 20px;
+        color: #e9d5d5; /* Asegura que el texto dentro del contenedor sea visible */
+    }
+    .table {
+        width: 100%;
+        border-collapse: collapse;
+        color: #131212; /* Color del texto en la tabla */
+    }
+    .table th, .table td {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+    .table th {
+        background-color: #333;
+    }
+    .table tr:nth-child(even) {
+        background-color: #444;
+    }
+    .table tr:hover {
+        background-color: #555;
+    }
+    .btn {
+        padding: 5px 10px;
+        text-decoration: none;
+        color: #fff;
+        border-radius: 5px;
+        display: inline-block;
+        margin: 2px;
+    }
+    .btn-warning {
+        background-color: #ffc107;
+    }
+    .btn-danger {
+        background-color: #dc3545;
+    }
+    .btn-sm {
+        font-size: 0.875rem;
+    }
+</style>
+
+<h1>List of Clients</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nombre</th>
+            <th>Tipo Identificación</th>
+            <th>ID Número de Identificación</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Acciones</th> <!-- Nueva columna para botones -->
+        </tr>
+    </thead>
+    <tbody>
+        {% for cliente in clientes %}
+        <tr>
+            <td>{{ cliente.nombre }}</td>
+            <td>{{ cliente.tipo_identificacion }}</td>
+            <td>{{ cliente.numero_identificacion }}</td>
+            <td>{{ cliente.direccion }}</td>
+            <td>{{ cliente.telefono }}</td>
+            <td>
+                <a href="{{ url_for('editar_cliente', id=cliente.id) }}" class="btn btn-warning btn-sm">Editar</a>
+                <a href="{{ url_for('eliminar_cliente', id=cliente.id) }}" class="btn btn-danger btn-sm" onclick="return confirm('¿Estás seguro de que quieres eliminar este cliente?')">Eliminar</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

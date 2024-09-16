@@ -1,0 +1,45 @@
+{% extends "layout.html" %}
+
+{% block page_content %}
+<style>
+    body {
+        background-image: url("{{ url_for('static', filename='background_productos.jpg') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+</style>
+
+<h1>Lista de Productos</h1>
+<a href="{{ url_for('agregar_producto') }}" class="btn btn-primary">Agregar Producto</a>
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Descripción</th>
+            <th>Unidad de Medida</th>
+            <th>Cantidad Stock</th>
+            <th>Valor Unitario</th>
+            <th>Categoria</th>
+            <th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for producto in productos %}
+            <tr>
+                <td>{{ producto.id }}</td>
+                <td>{{ producto.descripcion }}</td>
+                <td>{{ producto.unidad_medida }}</td>
+                <td>{{ producto.cantidad_stock }}</td>
+                <td>{{ producto.valor_unitario }}</td>
+                <td>{{ producto.categoria }}</td>
+                <td>
+                    <a href="{{ url_for('editar_producto', id=producto.id) }}" class="btn btn-warning">Editar</a>
+                    <a href="{{ url_for('eliminar_producto', id=producto.id) }}" class="btn btn-danger">Eliminar</a>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

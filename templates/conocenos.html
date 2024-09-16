@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block page_content %}
+<style>
+    body {
+        background-image: url("{{ url_for('static', filename='background2.jpg') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        color: #fff; /* Asegúrate de que el texto sea visible sobre la imagen de fondo */
+        margin: 0;
+        padding: 0;
+        font-family: Arial, sans-serif; /* Cambia la fuente si es necesario */
+    }
+    .container {
+        padding: 20px;
+        background-color: rgba(0, 0, 0, 0.6); /* Fondo semi-transparente para el contenido */
+        border-radius: 8px;
+        margin: 20px;
+    }
+    h1, h2 {
+        color: #fff; /* Asegura que los títulos sean legibles sobre el fondo */
+    }
+    ul {
+        list-style-type: none; /* Elimina los puntos de la lista */
+        padding: 0;
+    }
+    li {
+        padding: 5px 0;
+    }
+</style>
+
+<h1>Descripción del Lugar</h1>
+
+<div class="container">
+    <h2>Nombre del Lugar: Wit Company Pizzería</h2>
+    <p><strong>Ubicación:</strong> Calle Principal, Ciudad, País</p>
+    <p><strong>Horario de Atención:</strong> Lunes a Domingo, 11:00 AM - 10:00 PM</p>
+    <p><strong>Descripción:</strong> Wit Company es una encantadora pizzería que ofrece una amplia variedad de deliciosas pizzas, desde las clásicas hasta las más creativas. Con un ambiente acogedor y un servicio excepcional, es el lugar perfecto para disfrutar de una comida memorable con amigos y familiares.</p>
+    <h3>Características Destacadas:</h3>
+    <ul>
+        <li>Variedad de pizzas frescas y sabrosas.</li>
+        <li>Personal amable y atento.</li>
+        <li>Ambiente acogedor y familiar.</li>
+        <li>Compromiso con la calidad y la satisfacción del cliente.</li>
+    </ul>
+    <h3>Opiniones de los Clientes:</h3>
+    <blockquote>"Wit Company es mi lugar favorito para disfrutar de una auténtica pizza italiana. El personal siempre me hace sentir como en casa y la comida nunca decepciona." - Juan Pérez</blockquote>
+    <blockquote>"¡Increíble experiencia gastronómica! Las pizzas son deliciosas y el ambiente es simplemente encantador. ¡Definitivamente volveré!" - María González</blockquote>
+</div>
+{% endblock %}

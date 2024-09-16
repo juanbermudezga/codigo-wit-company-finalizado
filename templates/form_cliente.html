@@ -1,0 +1,63 @@
+{% extends "layout.html" %}
+
+{% block page_content %}
+<style>
+    body {
+        background-image: url("{{ url_for('static', filename='background5.jpg') }}");
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+    }
+    
+    .container {
+        background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco semi-transparente para el contenedor */
+        padding: 20px;
+        border-radius: 8px;
+        margin-top: 20px;
+    }
+    
+    .form-row {
+        margin-bottom: 15px;
+    }
+    
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    .btn-primary {
+        background-color: #007bff;
+        border-color: #007bff;
+    }
+</style>
+
+<h1>{{ 'Editar Cliente' if cliente else 'Formulario Cliente' }}</h1>
+
+<div class="container">
+    <form method="post">
+        <div class="form-row">
+            <div class="form-group col-md-6">
+                <label for="inputNombre">Nombre</label>
+                <input type="text" class="form-control" id="inputNombre" name="nombre" value="{{ cliente.nombre if cliente else '' }}" placeholder="Nombre Completo" required>
+            </div>
+            <div class="form-group col-md-6">
+                <label for="inputTipoIdentificacion">Tipo de ID</label>
+                <input type="text" class="form-control" id="inputTipoIdentificacion" name="tipo_identificacion" value="{{ cliente.tipo_identificacion if cliente else '' }}" placeholder="Tipo de ID" required>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="inputNumeroIdentificacion">Número de ID</label>
+            <input type="text" class="form-control" id="inputNumeroIdentificacion" name="numero_identificacion" value="{{ cliente.numero_identificacion if cliente else '' }}" placeholder="Número de ID" required>
+        </div>
+        <div class="form-group">
+            <label for="inputDireccion">Dirección</label>
+            <input type="text" class="form-control" id="inputDireccion" name="direccion" value="{{ cliente.direccion if cliente else '' }}" placeholder="Dirección" required>
+        </div>
+        <div class="form-group">
+            <label for="inputTelefono">Teléfono</label>
+            <input type="text" class="form-control" id="inputTelefono" name="telefono" value="{{ cliente.telefono if cliente else '' }}" placeholder="Número de Teléfono" required>
+        </div>
+        <button type="submit" class="btn btn-primary">{{ 'Actualizar' if cliente else 'Enviar' }}</button>
+    </form>
+</div>
+{% endblock %}
